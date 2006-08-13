@@ -1,12 +1,12 @@
 %define		_realname	gnome-hdaps-applet
 %define		_snap		20060120
-Summary:	GNOME-based panel applet and management tool to manage wireless network cards 
+Summary:	GNOME-based panel applet for monitoring the HDAPS protection status 
 Name:		gnome-applet-hdaps
-Version:	%{_snap}
+Version:	0.1.{_snap}
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://www.zen24593.zen.co.uk/hdaps/%{_realname}-%{version}.tar.gz
+Source0:	http://www.zen24593.zen.co.uk/hdaps/%{_realname}-%{_snap}.tar.gz
 # Source0-md5:	43ff308ccf5d15625e9f8f157bfc4bbc
 URL:		http://www.zen24593.zen.co.uk/hdaps/
 BuildRequires:	automake
@@ -26,9 +26,10 @@ Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This project aims to create a GNOME-based panel applet and management
-tool to manage wireless network cards that support Linux wireless
-extensions.
+Monitors the /sys/block/xxx/queue/protect file and displays a graphical
+representation of the HDAPS protection status. Looks for the protect
+file under hda and sda and will use whichever is found first 
+(lame but works for now).
 
 %prep
 
