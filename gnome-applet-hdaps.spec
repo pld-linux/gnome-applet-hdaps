@@ -2,8 +2,8 @@
 %define		_snap		20060120
 Summary:	GNOME-based panel applet for monitoring the HDAPS protection status 
 Name:		gnome-applet-hdaps
-Version:	0.1.{_snap}
-Release:	0.1
+Version:	0.1.%{_snap}
+Release:	0.2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.zen24593.zen.co.uk/hdaps/%{_realname}-%{_snap}.tar.gz
@@ -47,15 +47,17 @@ install %{_realname}  $RPM_BUILD_ROOT%{_bindir}
 install *.png  $RPM_BUILD_ROOT%{_pixmapsdir}/%{_realname}
 install *.server $RPM_BUILD_ROOT%{_libdir}/bonobo/servers
 
-# Restart GNOME and you should find the "HDAPS Status" applet in the "Add to Panel" dialog
-
 ##%%find_lang hdaps-applet --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%gconf_schema_install %{_realname}.schemas
 %scrollkeeper_update_post
+
+%preun
+%gconf_schema_uninstall %{_realname}.schemas
 
 %postun
 %scrollkeeper_update_postun
