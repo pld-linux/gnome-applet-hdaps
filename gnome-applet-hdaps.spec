@@ -1,6 +1,7 @@
 %define		_realname	gnome-hdaps-applet
 %define		_snap		20060120
-Summary:	GNOME-based panel applet for monitoring the HDAPS protection status 
+Summary:	GNOME-based panel applet for monitoring the HDAPS protection status
+Summary(pl):	Aplet panelu GNOME do monitorowania stanu zabezpieczenia HDAPS
 Name:		gnome-applet-hdaps
 Version:	0.1.%{_snap}
 Release:	0.2
@@ -9,36 +10,28 @@ Group:		X11/Applications
 Source0:	http://www.zen24593.zen.co.uk/hdaps/%{_realname}-%{_snap}.tar.gz
 # Source0-md5:	43ff308ccf5d15625e9f8f157bfc4bbc
 URL:		http://www.zen24593.zen.co.uk/hdaps/
-BuildRequires:	automake
-#uildRequires:	
-BuildRequires:	gnome-desktop-devel >= 2.4.0
-BuildRequires:	gtkxmhtml-devel
-BuildRequires:	gtk+-devel >= 1.2.10
 BuildRequires:	gnome-panel-devel >= 2.4.0
-BuildRequires:	intltool >= 0.21
-BuildRequires:	gnome-libs-devel >= 1.4.2
-BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnomeui-devel >= 2.8.0
-BuildRequires:	libgtop-devel >= 2.10.0
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	scrollkeeper
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Monitors the /sys/block/xxx/queue/protect file and displays a graphical
-representation of the HDAPS protection status. Looks for the protect
-file under hda and sda and will use whichever is found first 
+Monitors the /sys/block/xxx/queue/protect file and displays a
+graphical representation of the HDAPS protection status. Looks for the
+protect file under hda and sda and will use whichever is found first
 (lame but works for now).
 
 %prep
+Ten aplet monitoruje plik /sys/block/xxx/queue/protect i wy¶wietla
+graficzn± reprezentacjê stanu zabezpieczenia HDAPS. Szuka pliku
+procect w katalogach hda i sda i u¿ywa tego, który znajdzie jako
+pierwszy (prymitywne, ale dzia³a).
 
 %setup -q -c
 
 %build
-
-gcc $(pkg-config --cflags --libs libpanelapplet-2.0) -o gnome-hdaps-applet gnome-hdaps-applet.c
-
+%{__cc} %{rpmldflags} %{rpmcflags} $(pkg-config --cflags --libs libpanelapplet-2.0) -o gnome-hdaps-applet gnome-hdaps-applet.c
 
 %install
 rm -rf $RPM_BUILD_ROOT
