@@ -22,12 +22,13 @@ graphical representation of the HDAPS protection status. Looks for the
 protect file under hda and sda and will use whichever is found first
 (lame but works for now).
 
-%prep
+%description -l pl
 Ten aplet monitoruje plik /sys/block/xxx/queue/protect i wy¶wietla
 graficzn± reprezentacjê stanu zabezpieczenia HDAPS. Szuka pliku
 procect w katalogach hda i sda i u¿ywa tego, który znajdzie jako
 pierwszy (prymitywne, ale dzia³a).
 
+%prep
 %setup -q -c
 
 %build
