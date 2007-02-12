@@ -1,7 +1,7 @@
 %define		_realname	gnome-hdaps-applet
 %define		_snap		20060120
 Summary:	GNOME-based panel applet for monitoring the HDAPS protection status
-Summary(pl.UTF-8):   Aplet panelu GNOME do monitorowania stanu zabezpieczenia HDAPS
+Summary(pl.UTF-8):	Aplet panelu GNOME do monitorowania stanu zabezpieczenia HDAPS
 Name:		gnome-applet-hdaps
 Version:	0.1.%{_snap}
 Release:	0.2
