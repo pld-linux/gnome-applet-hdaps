@@ -1,7 +1,7 @@
 %define		_realname	gnome-hdaps-applet
 %define		_snap		20060120
 Summary:	GNOME-based panel applet for monitoring the HDAPS protection status
-Summary(pl):	Aplet panelu GNOME do monitorowania stanu zabezpieczenia HDAPS
+Summary(pl.UTF-8):   Aplet panelu GNOME do monitorowania stanu zabezpieczenia HDAPS
 Name:		gnome-applet-hdaps
 Version:	0.1.%{_snap}
 Release:	0.2
@@ -22,11 +22,11 @@ graphical representation of the HDAPS protection status. Looks for the
 protect file under hda and sda and will use whichever is found first
 (lame but works for now).
 
-%description -l pl
-Ten aplet monitoruje plik /sys/block/xxx/queue/protect i wy¶wietla
-graficzn± reprezentacjê stanu zabezpieczenia HDAPS. Szuka pliku
-protect w katalogach hda i sda i u¿ywa tego, który znajdzie jako
-pierwszy (prymitywne, ale dzia³a).
+%description -l pl.UTF-8
+Ten aplet monitoruje plik /sys/block/xxx/queue/protect i wyÅ›wietla
+graficznÄ… reprezentacjÄ™ stanu zabezpieczenia HDAPS. Szuka pliku
+protect w katalogach hda i sda i uÅ¼ywa tego, ktÃ³ry znajdzie jako
+pierwszy (prymitywne, ale dziaÅ‚a).
 
 %prep
 %setup -q -c
